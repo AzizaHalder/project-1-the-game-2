@@ -35,30 +35,50 @@ displayTourist();
 // Global variables
 // Get tourist image
 const tourist = document.querySelector("#touristPlayer");
+const rat = document.querySelector("#ratObstacle");
 let positionY = 0;
+let isJumping = false;
 let controls = [];
+// let obstacles = [];
+let timer;
+let groundHeight = 0;
+let stopJumping;
 // let position = 0;
 
 // Move tourist
 function jump() {
-  //   let timer = setInterval(() => {
+  //
   //moveUp
-  console.log("up");
-  positionY += 20;
-  tourist.style.bottom = positionY + "px";
-  console.log(positionY);
+  if (isJumping) return;
+  timer = setInterval(() => {
+    console.log("up");
+    if (positionY >= groundHeight + 50) {
+      clearInterval(timer);
+      stopJumping = setInterval(() => {
+        if (positionY <= groundHeight + 10) {
+          clearInterval(stopJumping);
+          isJumping = false;
+        }
+        positionY -= 10;
+        tourist.style.bottom = positionY + "px";
+      }, 50);
+    }
+    positionY += 80;
+    tourist.style.bottom = positionY + "px";
+    isJumping = true;
+    console.log(positionY);
 
-  // stop moveUP
+    // stop moveUP
 
-  //   if (positionY == 180) {
-  // clearInterval(timer);
-  //   return (positionY = 0);
-  console.log("down");
-  //   positionY -= 20;
-  //   tourist.style.bottom = positionY + "px";
-  //   }
-  //   }, 200);
-
+    //   if (positionY == 180) {
+    // clearInterval(timer);
+    //   return (positionY = 0);
+    console.log("down");
+    //   positionY -= 20;
+    //   tourist.style.bottom = positionY + "px";
+    //   }
+  }, 50);
+  /*
   //   Player can 'jumpUp' with space bar
   document.addEventListener("keydown", (e) => {
     if (e.key == " " && positionY < 180) {
@@ -81,13 +101,19 @@ function jumpDown() {
     tourist.style.bottom = 0;
   }
 }
-
+*/
+}
 jump();
 
-// Assign jump() functionality to spacebar
-function gameControl() {}
+// Obstacles
+function spawnObstacles() {}
 
-gameControl();
+// Assign jump() functionality to spacebar
+function gameControl(e) {
+  if (e.key == " " || e.key == "ArrowUp") jump();
+}
+
+document.addEventListener("keydown", gameControl);
 // Player stops pressiong
 
 // "Listening" for spacebar

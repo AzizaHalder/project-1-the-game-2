@@ -3,11 +3,13 @@ body {
     margin: 0;
     border: 2px solid lightblue;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
 
 }
 
 section {
     border: 2px solid lightcoral;
+    
     /* width: 1000px; */
     /* padding: 20px; */
     /* height: 900px; */
@@ -19,23 +21,31 @@ div {
 }
 
 #gameBoard {
-    background-color: rgb(183, 250, 135);
+    /* background-color: rgb(183, 250, 135); */
     height: 500px;
+    background-image: url('../images/park-cityscape.jpg');
+    background-size: cover;
+
+   
 }
  #touristPlayer {
     position: absolute;
     /* keeps player at bottom of page */
-    bottom: 0;
+    bottom: 0px;
     height: 200px;
     background-color: rgb(234, 0, 255);
+    
 }
 
-/* #parkscape {
-    width: 1000px;
-    height: 500px;
- 
-} */
-
-
+#ratObstacle {
+    position: absolute;
+    /* width: 100px; */
+    bottom: 0px;
+    right: 10px;
+    height: 80px;
+    background-color: brown;
+    /* float: right; */
+    /* bottom: 0px; */
+}
 
 
