@@ -1,0 +1,2 @@
+Image Sources
+Kebab Stand: https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fman-selling-traditional-arabic-kebab-street-food-market_277904-2606.jpg&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fkebab-shop%2F4&tbnid=2bAaz05Bcbr9hM&vet=12ahUKEwjg5YW74dj7AhUbxwIHHQ4-BEgQMygAegUIARDTAQ..i&docid=T_5LUfmsF-Xr5M&w=626&h=626&q=free%20cartoon%20doner%20shop&ved=2ahUKEwjg5YW74dj7AhUbxwIHHQ4-BEgQMygAegUIARDTAQ

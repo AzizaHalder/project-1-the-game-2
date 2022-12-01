@@ -4,46 +4,31 @@ TO DO
 - give jump functionality to tourist
 - create rat obstacles 
 - have rat obstacles moving from right side of screen 
-*/
-/*
-function backgroundImage() {
-  const gameBackground = document.createElement("img");
-  gameBackground.setAttribute("src", "./images/park-cityscape.jpg");
-  gameBackground.setAttribute("width", "1000");
-  gameBackground.setAttribute("height", "500");
-  gameBackground.setAttribute("alt", "Cartoon drawing of a park / cityscape");
-  gameBackground.setAttribute("id", "parkscape");
-  document.body.appendChild(gameBackground);
-}
+- Populate read me 
+- win 
+- lose / start again 
+- start button begins game / rats attack
+- rats in different sizes?
+- tourist can only start jumping when game has started
 
-window.backgroundImage = backgroundImage;
-backgroundImage();
-
-function displayTourist() {
-  const tourist = document.createElement("img");
-  tourist.setAttribute("src", "./images/tourist.png");
-  tourist.setAttribute("height", "200");
-  tourist.setAttribute("alt", "Cartoon of casually dressed woman");
-  tourist.setAttribute("id", "touristPlayer");
-  document.body.appendChild(tourist);
-}
-
-window.displayTourist = displayTourist;
-displayTourist();
 */
 
 // Global variables
 // Get tourist image
+const gameBoard = document.querySelector("#gameBoard");
 const tourist = document.querySelector("#touristPlayer");
-const rat = document.querySelector("#ratObstacle");
-let positionY = 0;
+// Get rat image
+const rat = document.querySelector(".ratObstacle");
+let positionY = null;
+let positionX = null;
 let isJumping = false;
 let controls = [];
-// let obstacles = [];
+let ratsArray = [];
 let timer;
 let groundHeight = 0;
 let stopJumping;
-// let position = 0;
+let frames = 0;
+let number = 0;
 
 // Move tourist
 function jump() {
@@ -52,14 +37,14 @@ function jump() {
   if (isJumping) return;
   timer = setInterval(() => {
     console.log("up");
-    if (positionY >= groundHeight + 50) {
+    if (positionY >= groundHeight + 10) {
       clearInterval(timer);
       stopJumping = setInterval(() => {
         if (positionY <= groundHeight + 10) {
           clearInterval(stopJumping);
           isJumping = false;
         }
-        positionY -= 10;
+        positionY -= 5;
         tourist.style.bottom = positionY + "px";
       }, 50);
     }
@@ -78,46 +63,57 @@ function jump() {
     //   tourist.style.bottom = positionY + "px";
     //   }
   }, 50);
-  /*
-  //   Player can 'jumpUp' with space bar
-  document.addEventListener("keydown", (e) => {
-    if (e.key == " " && positionY < 180) {
-      jump();
-    }
-  });
-  console.log(positionY);
-
-  // player returns to 'bottom' on key up
-  document.addEventListener("keyup", (e) => {
-    if (!e.key == " " && !positionY < 180) {
-      jumpDown();
-    }
-  });
-}
-
-// giving 0 value again
-function jumpDown() {
-  if (positionY == 180) {
-    tourist.style.bottom = 0;
-  }
-}
-*/
 }
 jump();
 
-// Obstacles
-function spawnObstacles() {}
+function startGame() {}
 
-// Assign jump() functionality to spacebar
-function gameControl(e) {
-  if (e.key == " " || e.key == "ArrowUp") jump();
+// Obstacles
+// class Rats {
+//   constructor(posX, posY, width, height) {
+//     this.posX = posX;
+//     this.posY = posY;
+//     this.width = width;
+//     this.height = height;
+//     this.img = this.createRat();
+//   }
+
+//   createRat() {
+//     const rat = newImage();
+//     rat.src = "./images/rat.png";
+//     return rat;
+//   }
+// }
+
+// function obstacleRat() {
+//   let handleInterval = null;
+//   positionX = 0;
+//   clearInterval(handleInterval);
+//   handleInterval = setInterval(() => {
+//     if (positionX == gameBoard.width) {
+//       clearInterval(id);
+//     } else {
+//       positionX++;
+//       rat.style.right = positionX + "px";
+//     }
+//   }, 5);
+// }
+
+// document.createElement('img').src('../images/.rat2.png')
+
+function spawnObstacles() {
+  frames += 1;
+  if (frames % 120 == 0) {
+    // document.createElement("img").setAttribute("class", "rat");
+    // console.log(document.createElement("img").setAttribute("class", "rat"));
+    // all the styling rat, class array except for picture
+    // if condition, if true
+    // for loop, less than class name i++
+    // same logic that makes it move
+    // rat images hat have no source in html
+  }
 }
 
-document.addEventListener("keydown", gameControl);
-// Player stops pressiong
-
-// "Listening" for spacebar
-// document.addEventListener("keydown", () => {
-//   gameControl;
-// });
-// document.addEventListener("keyup", );
+setInterval(() => {
+  spawnObstacles();
+}, 20);
