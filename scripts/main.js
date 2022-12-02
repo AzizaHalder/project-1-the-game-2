@@ -1,27 +1,12 @@
-/*
-TO DO
-- make tourist appear in correct position on board 
-- give jump functionality to tourist
-- create rat obstacles 
-- have rat obstacles moving from right side of screen 
-- Populate read me 
-- win 
-- lose / start again 
-- start button begins game / rats attack
-- rats in different sizes?
-- tourist can only start jumping when game has started
-
-*/
+// Images
+const gameBoard = document.querySelector("#gameBoard");
+const tourist = document.querySelector(".tourist");
 
 // Global variables
-// Get tourist image
-const gameBoard = document.querySelector("#gameBoard");
-const tourist = document.querySelector("#touristPlayer");
-// Get rat image
-const rat = document.querySelector(".ratObstacle");
 let positionY = null;
 let positionX = null;
 let isJumping = false;
+let gravity = null;
 let controls = [];
 let ratsArray = [];
 let timer;
@@ -32,11 +17,9 @@ let number = 0;
 
 // Move tourist
 function jump() {
-  //
   //moveUp
   if (isJumping) return;
   timer = setInterval(() => {
-    console.log("up");
     if (positionY >= groundHeight + 10) {
       clearInterval(timer);
       stopJumping = setInterval(() => {
@@ -44,76 +27,86 @@ function jump() {
           clearInterval(stopJumping);
           isJumping = false;
         }
-        positionY -= 5;
+        positionY -= 10;
         tourist.style.bottom = positionY + "px";
-      }, 50);
+      }, 90);
     }
-    positionY += 80;
+    positionY += 100;
     tourist.style.bottom = positionY + "px";
     isJumping = true;
-    console.log(positionY);
-
-    // stop moveUP
-
-    //   if (positionY == 180) {
-    // clearInterval(timer);
-    //   return (positionY = 0);
-    console.log("down");
-    //   positionY -= 20;
-    //   tourist.style.bottom = positionY + "px";
-    //   }
-  }, 50);
+  }, 20);
 }
+
 jump();
 
-function startGame() {}
-
 // Obstacles
-// class Rats {
-//   constructor(posX, posY, width, height) {
-//     this.posX = posX;
-//     this.posY = posY;
-//     this.width = width;
-//     this.height = height;
-//     this.img = this.createRat();
-//   }
+function createRat() {
+  let rat = document.createElement("img");
+  rat.setAttribute("src", "./images/rat2.png");
+  rat.className = "rat";
+  rat.style.right = 10 + "px";
+  rat.style.height = 80 + "px";
 
-//   createRat() {
-//     const rat = newImage();
-//     rat.src = "./images/rat.png";
-//     return rat;
-//   }
-// }
+  gameBoard.appendChild(rat);
 
-// function obstacleRat() {
-//   let handleInterval = null;
-//   positionX = 0;
-//   clearInterval(handleInterval);
-//   handleInterval = setInterval(() => {
-//     if (positionX == gameBoard.width) {
-//       clearInterval(id);
-//     } else {
-//       positionX++;
-//       rat.style.right = positionX + "px";
-//     }
-//   }, 5);
-// }
+  const ratObject = {
+    domElement: rat,
+    posRight: 10,
+    ratHeight: 80,
+  };
 
-// document.createElement('img').src('../images/.rat2.png')
-
-function spawnObstacles() {
-  frames += 1;
-  if (frames % 120 == 0) {
-    // document.createElement("img").setAttribute("class", "rat");
-    // console.log(document.createElement("img").setAttribute("class", "rat"));
-    // all the styling rat, class array except for picture
-    // if condition, if true
-    // for loop, less than class name i++
-    // same logic that makes it move
-    // rat images hat have no source in html
-  }
+  ratsArray.push(ratObject);
 }
 
+const checkCollision = setInterval(() => {
+  ratsArray.forEach((rat) => {
+    // check that they are going off the screen
+    rat.posRight += 10;
+    rat.domElement.style.right = rat.posRight + "px";
+
+    const ratRelativePosToTourist = 1500 - rat.posRight;
+    const touristBottomPos = Number(tourist.style.bottom.replace("px", ""));
+
+    if (
+      touristBottomPos <= 10 &&
+      rat.posRight <= 1480 &&
+      rat.posRight >= 1340
+    ) {
+      clearInterval(checkCollision);
+
+      document.getElementById("gameOver").style.display = "block";
+
+      // alert(
+      //   "You got attacked by rats, sorry, no kebab for you. Press OK to restart."
+      // );
+      // location.reload();
+      let ratsArray = [];
+      // console.log("collision");
+    }
+  });
+}, 75);
+
 setInterval(() => {
-  spawnObstacles();
-}, 20);
+  createRat();
+}, 2000);
+
+function countdown() {
+  const timeLeft = document.querySelector("#timer");
+  let seconds = 90;
+
+  const countDown = setInterval(() => {
+    seconds--;
+    timeLeft.innerHTML = `${seconds}`;
+    if (seconds == 0) {
+      clearInterval(countDown);
+      document.getElementById("gameWin").style.display = "block";
+      clearInterval(checkCollision);
+    }
+  }, 1000);
+}
+
+countdown();
+
+document.addEventListener("keydown", (e) => {
+  if (e.key == " " || e.key == "ArrowUp") jump();
+});

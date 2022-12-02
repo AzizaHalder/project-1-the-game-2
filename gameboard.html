@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Walking In Berlin</title>
-    <link rel="stylesheet" href="./styles/gameboard-style.css">
-</head>
-<body >
-    <!-- onload="obstacleRat()" -->
+    <link rel="stylesheet" href="./styles/gameboard-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200&family=Oswald:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <section>
-        <div id="gameBoard" >
-            <div id="score">
-                <h2>Score: 0</h2>
-            </div>
-            <img src="./images/tourist2.png" alt="Cartoon of casually dressed woman" id="touristPlayer">
-            <!-- <div id="rat"></div> -->
-            <!-- <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle">
-            <img src="./images/rat2.png" alt="Cartoon drawing of a rat" class="ratObstacle"> -->
-            <!-- <img src="./images/park-cityscape.jpg" alt=""> -->
-            <!-- <img src="./images/park-cityscape.jpg" alt="Cartoon park / cityscape" id="parkscape"> -->
+      <div id="gameBoard">
         
-        </div>
-    </section>
+        <div id="timer"></div>
+        <img
+          src="./images/tourist2.png"
+          alt="Cartoon of casually dressed woman"
+          class="tourist"
+        />
     
+        <div id="gameWin">
+            <div>
+                <h1>
+                    Bravo! <br /> You made it to the Döner Kebab stand! <br /> Guten Appetit!
+                </h1>
+                <img src="./images/kebab-stand.png" alt="Cartoon of shop keeper at a kebab stand" id="kebabStand">
+                <div>
+                    <button id="kebabBtn" onclick="window.location.reload()">Get another Kebab!</button>
+                </div>
+            </div>
+      </div>
+
+    <div id="gameOver">
+        <div>
+            <h1>
+                Game Over! <br />
+                You didn't make it to the Döner Kebab stand
+            </h1>
+            <img src="./images/rat2.png" alt="Cartoon of a rat">
+        </div>
+    
+        <div>
+            <button id="tryAgainBtn" onclick="window.location.reload()">Try Again!</button>
+        </div>
+    </div>
+    </section>
+
     <script src="./scripts/main.js"></script>
-</body>
+  </body>
 </html>
