@@ -12,6 +12,7 @@ let groundHeight = 0;
 let stopJumping;
 let frames = 0;
 let number = 0;
+let counter;
 
 // Move tourist
 function jump() {
@@ -58,8 +59,10 @@ function createRat() {
 
 const checkCollision = setInterval(() => {
   ratsArray.forEach((rat) => {
-    // To do; stop rats from continuing to move once off the screen
     rat.posRight += 10;
+    if (rat.posRight == 1440) {
+      rat.domElement.style.display = "none";
+    }
     rat.domElement.style.right = rat.posRight + "px";
 
     const touristBottomPos = Number(tourist.style.bottom.replace("px", ""));
@@ -71,6 +74,7 @@ const checkCollision = setInterval(() => {
     ) {
       clearInterval(checkCollision);
       document.getElementById("gameOver").style.display = "block";
+      clearInterval(counter);
     }
   });
 }, 75);
@@ -81,11 +85,12 @@ setInterval(() => {
 
 function countdown() {
   const timeLeft = document.querySelector("#timer");
-  let seconds = 60;
+  let seconds = 40;
 
-  const counter = setInterval(() => {
+  counter = setInterval(() => {
     seconds--;
     timeLeft.innerHTML = `${seconds}`;
+    // winning condition
     if (seconds == 0) {
       clearInterval(counter);
       document.getElementById("gameWin").style.display = "block";
