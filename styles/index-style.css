@@ -10,7 +10,6 @@ body {
 }
 
 #homepage {
-  border: 2px solid lightcoral;
   background-image: url("../images/park-cityscape.jpg");
   background-repeat: no-repeat;
   background-size: cover;

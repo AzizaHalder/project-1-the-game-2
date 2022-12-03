@@ -6,8 +6,6 @@ const tourist = document.querySelector(".tourist");
 let positionY = null;
 let positionX = null;
 let isJumping = false;
-let gravity = null;
-let controls = [];
 let ratsArray = [];
 let timer;
 let groundHeight = 0;
@@ -60,11 +58,10 @@ function createRat() {
 
 const checkCollision = setInterval(() => {
   ratsArray.forEach((rat) => {
-    // check that they are going off the screen
+    // To do; stop rats from continuing to move once off the screen
     rat.posRight += 10;
     rat.domElement.style.right = rat.posRight + "px";
 
-    const ratRelativePosToTourist = 1500 - rat.posRight;
     const touristBottomPos = Number(tourist.style.bottom.replace("px", ""));
 
     if (
@@ -73,15 +70,7 @@ const checkCollision = setInterval(() => {
       rat.posRight >= 1340
     ) {
       clearInterval(checkCollision);
-
       document.getElementById("gameOver").style.display = "block";
-
-      // alert(
-      //   "You got attacked by rats, sorry, no kebab for you. Press OK to restart."
-      // );
-      // location.reload();
-      let ratsArray = [];
-      // console.log("collision");
     }
   });
 }, 75);
@@ -92,13 +81,13 @@ setInterval(() => {
 
 function countdown() {
   const timeLeft = document.querySelector("#timer");
-  let seconds = 90;
+  let seconds = 60;
 
-  const countDown = setInterval(() => {
+  const counter = setInterval(() => {
     seconds--;
     timeLeft.innerHTML = `${seconds}`;
     if (seconds == 0) {
-      clearInterval(countDown);
+      clearInterval(counter);
       document.getElementById("gameWin").style.display = "block";
       clearInterval(checkCollision);
     }

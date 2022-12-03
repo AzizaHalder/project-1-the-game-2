@@ -9,6 +9,9 @@ body {
   color: rgb(25, 43, 58);
   position: relative;
   background-color: rgba(109, 185, 251, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #gameBoard {
