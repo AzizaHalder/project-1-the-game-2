@@ -5,11 +5,11 @@ In this game you try and avoid another Berlin "staple", rats, and get yourself a
  Goodluck and Guten appetite!
 
 # Resources
-* [MDN] (https://developer.mozilla.org/en-US/)
-* [w3 Schools] (https://www.w3schools.com/graphics/game_components.asp)
-* [Build a Game] (https://www.youtube.com/watch?v=dQ6lYd6dyTI)
-* [JavaScript Animation] (https://javascript.info/js-animation)
-* [Programiz] (https://www.programiz.com/)
+* [MDN](https://developer.mozilla.org/en-US/)
+* [w3 Schools](https://www.w3schools.com/graphics/game_components.asp)
+* [Build a Game](https://www.youtube.com/watch?v=dQ6lYd6dyTI)
+* [JavaScript Animation](https://javascript.info/js-animation)
+* [Programiz](https://www.programiz.com/)
 
 # Image Sources
 * [Kebab Stand](https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fman-selling-traditional-arabic-kebab-street-food-market_277904-2606.jpg&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fkebab-shop%2F4&tbnid=2bAaz05Bcbr9hM&vet=12ahUKEwjg5YW74dj7AhUbxwIHHQ4-BEgQMygAegUIARDTAQ..i&docid=T_5LUfmsF-Xr5M&w=626&h=626&q=free%20cartoon%20doner%20shop&ved=2ahUKEwjg5YW74dj7AhUbxwIHHQ4-BEgQMygAegUIARDTAQ)
