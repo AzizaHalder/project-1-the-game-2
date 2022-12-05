@@ -12,6 +12,14 @@ Goodluck and Guten appetite!
 - [Build a Game](https://www.youtube.com/watch?v=dQ6lYd6dyTI)
 - [JavaScript Animation](https://javascript.info/js-animation)
 - [Programiz](https://www.programiz.com/)
+- [Stack overflow](https://stackoverflow.com/)
+
+# Future development
+
+- Rats appear at random intervals
+- Score
+- High Score
+- Better jump functionality
 
 # Image Sources
 
